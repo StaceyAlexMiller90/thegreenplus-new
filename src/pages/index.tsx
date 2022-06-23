@@ -87,13 +87,13 @@ const Home: NextPage = () => {
                                 className="introvideo"
                             >
                                 <source
-                                    src="./greenplus.mp4"
+                                    src="./girlbythesea.mp4"
                                     type="video/mp4"
                                 />
-                                <source
+                                {/* <source
                                     src="./greenplus.webm"
                                     type="video/webm"
-                                />
+                                /> */}
                             </video>
                             <div className="container introquote d-flex flex-column align-items-start">
                                 <h1 className="quote">
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
                                 <div className="quote_subline">
                                     <p>
                                         <span className="honest">HONEST</span>{" "}
-                                        <span className="and">&amp;</span>
+                                        <span className="and">&amp;</span>{" "}
                                         <span className="easy">EASY</span>.
                                     </p>
                                 </div>
