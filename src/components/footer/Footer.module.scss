@@ -7,7 +7,7 @@
     background-color: #151515;
     text-align: center;
 
-    @media (min-width: 768px) {
+    @media (--medium) {
         margin: 4vw auto 0 auto;
     }
 }
@@ -21,16 +21,15 @@
     text-decoration: none;
 
     &:hover {
-        cursor: pointer;
         color: #46b38a;
     }
 
-    @media (min-width: 768px) {
+    @media (--medium) {
         font-size: 13px;
         margin: 0 0.225vw;
     }
 
-    @media (min-width: 992px) {
+    @media (--large) {
         font-size: 1.2vw;
     }
 }

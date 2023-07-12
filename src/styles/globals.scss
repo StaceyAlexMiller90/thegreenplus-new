@@ -1,6 +1,33 @@
-@import './config/variables';
+@use './config/utils' as utils;
 
-// Global Styles
+// Global Styles:
+:root {
+    --off-black: #262626;
+    --primary-green: #46b38a;
+    --black: black;
+    --white: white;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1440px;
+    --breakpoint-3xl: 1680px;
+    --breakpoint-4xl: 1920px;
+    --spacing-2: #{utils.toRem(2)};
+    --spacing-4: #{utils.toRem(4)};
+    --spacing-6: #{utils.toRem(6)};
+    --spacing-8: #{utils.toRem(8)};
+    --spacing-12: #{utils.toRem(12)};
+    --spacing-16: #{utils.toRem(16)};
+    --spacing-20: #{utils.toRem(20)};
+    --spacing-24: #{utils.toRem(24)};
+    --spacing-32: #{utils.toRem(32)};
+    --spacing-40: #{utils.toRem(40)};
+    --spacing-52: #{utils.toRem(52)};
+    --spacing-64: #{utils.toRem(64)};
+    --spacing-84: #{utils.toRem(84)};
+}
 
 /* Box sizing rules */
 *,

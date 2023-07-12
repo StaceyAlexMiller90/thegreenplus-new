@@ -1,0 +1,32 @@
+@use '../../styles/config/utils' as utils;
+
+.Svg {
+    width: utils.toRem(112);
+    height: auto;
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    stroke-linejoin: round;
+    stroke-miterlimit: 2;
+
+    @media (--large) {
+        width: 10vw;
+    }
+}
+
+.Icon {
+    fill: var(--primary-green);
+}
+
+.InnerIcon {
+    fill: var(--white);
+}
+
+.Text {
+    opacity: 1;
+    fill: var(--white);
+    transition: opacity 0.2s;
+
+    &.isHidden {
+        opacity: 0;
+    }
+}

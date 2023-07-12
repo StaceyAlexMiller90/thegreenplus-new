@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
-import localFont from '@next/font/local';
+import localFont from 'next/font/local';
 import Header from '../components/header/Header';
 
 import '../styles/globals.scss';

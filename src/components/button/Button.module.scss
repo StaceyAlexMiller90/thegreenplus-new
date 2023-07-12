@@ -1,0 +1,39 @@
+@use '../../styles/config/utils' as utils;
+
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    color: var(--black);
+    background-color: var(--white);
+    padding: var(--spacing-8);
+    font-weight: 500;
+    font-size: utils.toRem(16);
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--primary-green);
+    }
+
+    @media (--large) {
+        font-size: utils.toRem(18);
+        padding: var(--spacing-12);
+    }
+
+    &.isSecondary {
+        color: var(--white);
+        background-color: var(--primary-green);
+
+        &:hover {
+            color: var(--black);
+            background-color: var(--white);
+        }
+    }
+
+    &.isNaked {
+        background-color: transparent;
+        color: inherit;
+        padding: 0;
+    }
+}
