@@ -5,16 +5,3 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-.Button {
-    transition: transform 0.7s;
-    transform: translate(100px, 0px);
-    opacity: 0;
-    visibility: hidden;
-
-    &.isVisible {
-        transform: translate(0px, 0px);
-        opacity: 1;
-        visibility: inherit;
-    }
-}

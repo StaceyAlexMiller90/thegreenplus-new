@@ -1,6 +1,9 @@
 import { FC, PropsWithChildren } from 'react';
 import localFont from 'next/font/local';
 import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
+import Modal from '../components/modal/Modal';
+import ModalContextProvider from '../context/ModalContextProvider';
 
 import '../styles/globals.scss';
 
@@ -32,6 +35,10 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
             <body>
                 <Header />
                 <main>{children}</main>
+                <ModalContextProvider>
+                    <Modal />
+                    <Footer />
+                </ModalContextProvider>
             </body>
         </html>
     );

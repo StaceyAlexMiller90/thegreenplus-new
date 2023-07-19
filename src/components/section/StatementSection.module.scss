@@ -1,0 +1,32 @@
+.StatementSection {
+    margin-top: var(--spacing-48);
+    margin-bottom: var(--spacing-84);
+
+    @media (--medium) {
+        margin-top: var(--spacing-84);
+    }
+}
+
+.Video {
+    width: 100%;
+
+    @media (--medium) {
+        width: 45%;
+    }
+}
+
+.Text {
+    display: block;
+    font-size: var(--font-s);
+    font-weight: 700;
+    margin-bottom: var(--spacing-8);
+}
+
+.Link {
+    font-size: var(--font-xxs);
+
+    &:hover,
+    &:focus {
+        color: var(--primary-green);
+    }
+}

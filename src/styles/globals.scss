@@ -4,7 +4,7 @@
 :root {
     --off-black: #262626;
     --primary-green: #46b38a;
-    --black: black;
+    --black: #151515;
     --white: white;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
@@ -24,9 +24,19 @@
     --spacing-24: #{utils.toRem(24)};
     --spacing-32: #{utils.toRem(32)};
     --spacing-40: #{utils.toRem(40)};
+    --spacing-48: #{utils.toRem(48)};
     --spacing-52: #{utils.toRem(52)};
     --spacing-64: #{utils.toRem(64)};
     --spacing-84: #{utils.toRem(84)};
+    --spacing-96: #{utils.toRem(96)};
+    --spacing-128: #{utils.toRem(128)};
+    --spacing-240: #{utils.toRem(240)};
+    --font-xl: clamp(#{utils.toRem(40)}, 4vw, #{utils.toRem(80)});
+    --font-l: clamp(#{utils.toRem(32)}, 4vw, #{utils.toRem(72)});
+    --font-m: clamp(#{utils.toRem(24)}, 4vw, #{utils.toRem(53)});
+    --font-s: clamp(#{utils.toRem(24)}, 2vw, #{utils.toRem(32)});
+    --font-xs: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(38)});
+    --font-xxs: clamp(#{utils.toRem(16)}, 2vw, #{utils.toRem(24)});
 }
 
 /* Box sizing rules */
@@ -38,11 +48,14 @@
 
 html,
 body {
+    max-width: var(--breakpoint-4xl);
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
     font-family: var(--primary-font);
     background-color: var(--off-black);
     color: var(--white);
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
 

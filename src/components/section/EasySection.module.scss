@@ -1,0 +1,14 @@
+.EasySection {
+    flex-direction: column;
+}
+
+.Image {
+    width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+
+    @media (--xlarge) {
+        width: 65%;
+    }
+}

@@ -1,0 +1,29 @@
+@use '../../styles/config/utils' as utils;
+
+.Header {
+    font-size: var(--font-l);
+    text-align: center;
+    line-height: 1;
+    font-weight: 500;
+    padding-top: var(--spacing-64);
+
+    @media (--xlarge) {
+        padding-top: var(--spacing-128);
+    }
+}
+
+.Highlight {
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-24);
+
+    &::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: utils.toRem(10);
+        background-color: var(--primary-green);
+    }
+}

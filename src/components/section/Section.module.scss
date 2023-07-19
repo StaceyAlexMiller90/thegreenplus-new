@@ -1,0 +1,35 @@
+.Section {
+    @media (--medium) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.Primary {
+    background-color: var(--off-black);
+}
+
+.Secondary {
+    background-color: var(--black);
+}
+
+.Primary,
+.Secondary {
+    padding-left: var(--spacing-40);
+    padding-right: var(--spacing-40);
+
+    @media (--medium) {
+        padding-left: var(--spacing-96);
+        padding-right: var(--spacing-96);
+    }
+
+    @media (--large) {
+        padding-left: var(--spacing-128);
+        padding-right: var(--spacing-128);
+    }
+
+    @media (--xlarge) {
+        padding-left: var(--spacing-240);
+        padding-right: var(--spacing-240);
+    }
+}

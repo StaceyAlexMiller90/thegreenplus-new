@@ -1,4 +1,5 @@
 'use client';
+import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import useScrolled from 'src/hooks/useScrolled';
 import Button from '../button/Button';
@@ -21,9 +22,13 @@ const Navigation = () => {
                 <Logo simplified={isScrolled} />
             </Button>
 
-            <div className={classNames(styles.Button, { [styles.isVisible]: isScrolled })}>
+            <motion.div
+                initial={{ x: 300 }}
+                animate={{ x: isScrolled ? 0 : 300 }}
+                transition={{ duration: 0.3 }}
+                className={styles.Button}>
                 <Button onClick={scrollToTop}>Contact</Button>
-            </div>
+            </motion.div>
         </nav>
     );
 };
