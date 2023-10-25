@@ -5,10 +5,10 @@
     text-align: center;
     line-height: 1;
     font-weight: 500;
-    padding-top: var(--spacing-64);
+    margin-bottom: var(--spacing-52);
 
-    @media (--xlarge) {
-        padding-top: var(--spacing-128);
+    @media (--medium) {
+        margin-bottom: var(--spacing-84);
     }
 }
 

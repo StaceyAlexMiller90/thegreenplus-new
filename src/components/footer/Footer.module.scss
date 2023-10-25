@@ -6,30 +6,18 @@
     align-items: center;
     background-color: #151515;
     text-align: center;
-
-    @media (--medium) {
-        margin: 4vw auto 0 auto;
-    }
 }
 
 .Link {
     text-transform: uppercase;
     display: inline-block;
-    margin: 0 2px;
-    color: #fff;
-    font-size: 1rem;
+    margin-left: var(--spacing-2);
+    margin-right: var(--spacing-2);
+    color: var(--white);
+    font-size: var(--font-xxs);
     text-decoration: none;
 
     &:hover {
-        color: #46b38a;
-    }
-
-    @media (--medium) {
-        font-size: 13px;
-        margin: 0 0.225vw;
-    }
-
-    @media (--large) {
-        font-size: 1.2vw;
+        color: var(--primary-green);
     }
 }

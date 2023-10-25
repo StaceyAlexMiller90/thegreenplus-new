@@ -5,10 +5,8 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-bottom: var(--spacing-84);
 
     @media (--medium) {
-        margin-top: var(--spacing-84);
         flex-direction: row;
     }
 

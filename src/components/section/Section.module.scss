@@ -7,17 +7,35 @@
 
 .Primary {
     background-color: var(--off-black);
+    padding-left: var(--spacing-40);
+    padding-right: var(--spacing-40);
+    padding-top: var(--spacing-48);
+    padding-bottom: var(--spacing-84);
+
+    @media (--medium) {
+        padding-top: var(--spacing-84);
+    }
+
+    @media (--xlarge) {
+        padding-top: var(--spacing-128);
+    }
 }
 
 .Secondary {
     background-color: var(--black);
+    padding-left: var(--spacing-24);
+    padding-right: var(--spacing-24);
+    padding-top: var(--spacing-64);
+    padding-bottom: var(--spacing-64);
+
+    @media (--xlarge) {
+        padding-top: var(--spacing-128);
+        padding-bottom: var(--spacing-128);
+    }
 }
 
 .Primary,
 .Secondary {
-    padding-left: var(--spacing-40);
-    padding-right: var(--spacing-40);
-
     @media (--medium) {
         padding-left: var(--spacing-96);
         padding-right: var(--spacing-96);
