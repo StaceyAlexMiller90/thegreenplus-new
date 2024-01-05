@@ -34,8 +34,10 @@
     }
 }
 
-.Primary,
-.Secondary {
+.Primary {
+    padding-left: var(--spacing-40);
+    padding-right: var(--spacing-40);
+
     @media (--medium) {
         padding-left: var(--spacing-96);
         padding-right: var(--spacing-96);
@@ -47,7 +49,37 @@
     }
 
     @media (--xlarge) {
+        padding-left: var(--spacing-180);
+        padding-right: var(--spacing-180);
+    }
+
+    @media (--3xl) {
         padding-left: var(--spacing-240);
         padding-right: var(--spacing-240);
+    }
+}
+
+.Secondary {
+    padding-left: var(--spacing-24);
+    padding-right: var(--spacing-24);
+
+    @media (--medium) {
+        padding-left: var(--spacing-40);
+        padding-right: var(--spacing-40);
+    }
+
+    @media (--large) {
+        padding-left: var(--spacing-96);
+        padding-right: var(--spacing-96);
+    }
+
+    @media (--xlarge) {
+        padding-left: var(--spacing-128);
+        padding-right: var(--spacing-128);
+    }
+
+    @media (--3xl) {
+        padding-left: var(--spacing-180);
+        padding-right: var(--spacing-180);
     }
 }

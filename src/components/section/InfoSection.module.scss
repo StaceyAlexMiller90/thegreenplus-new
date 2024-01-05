@@ -25,23 +25,17 @@
     }
 }
 
+.ImageContainer {
+    flex-basis: 100%;
+    display: flex;
+    place-content: center;
+
+    @media (--medium) {
+        flex-basis: 45%;
+    }
+}
+
 .Image {
     width: 70%;
     height: auto;
-
-    @media (--medium) {
-        width: 45%;
-        padding-left: var(--spacing-40);
-        padding-right: var(--spacing-40);
-    }
-
-    @media (--large) {
-        padding-left: var(--spacing-52);
-        padding-right: var(--spacing-52);
-    }
-
-    @media (--xlarge) {
-        padding-left: var(--spacing-96);
-        padding-right: var(--spacing-96);
-    }
 }
