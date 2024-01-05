@@ -3,46 +3,25 @@ import styles from './Grid.module.scss';
 
 interface GridItem {
     heading: string;
-    paragraphs: string[];
+    children: ReactNode;
 }
-
-interface CustomComponent {
-    customComponent: ReactNode;
-}
-
 interface GridProps {
-    gridItems: (GridItem | CustomComponent)[];
+    children: ReactNode;
 }
 
-const Grid = ({ gridItems }: GridProps) => {
+const Grid = ({ children }: GridProps) => {
+    return <div className={styles.Grid}>{children}</div>;
+};
+
+const Item = ({ heading, children }: GridItem) => {
     return (
-        <div className={styles.Grid}>
-            {gridItems.map((gridItem, i) => {
-                if ('customComponent' in gridItem) {
-                    const Component = gridItem.customComponent;
-
-                    return Component;
-                } else if ('heading' in gridItem && 'paragraphs' in gridItem) {
-                    const { heading, paragraphs } = gridItem;
-
-                    return (
-                        <div key={heading} className={styles.GridItem}>
-                            <h3 className={styles.Heading}>{heading}</h3>
-                            <div className={styles.Body}>
-                                {paragraphs.map(paragraph => {
-                                    return (
-                                        <p key={paragraph} className={styles.Paragraph}>
-                                            {paragraph}
-                                        </p>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    );
-                }
-            })}
+        <div key={heading} className={styles.GridItem}>
+            <h3 className={styles.Heading}>{heading}</h3>
+            <div className={styles.Body}>{children}</div>
         </div>
     );
 };
+
+Grid.Item = Item;
 
 export default Grid;

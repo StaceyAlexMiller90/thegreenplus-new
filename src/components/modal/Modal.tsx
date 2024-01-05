@@ -12,26 +12,18 @@ const Modal = () => {
     };
 
     return (
-        <div
-            className={classNames(styles.Modal, { [styles.isOpen]: modalOpen })}
-            aria-hidden={!modalOpen}>
-            <div
-                role="presentation"
-                className={styles.Overlay}
-                data-testid="ocp-backdrop"
-                onClick={closeModal}
-            />
+        <div className={classNames(styles.Modal, { [styles.isOpen]: modalOpen })}>
+            <div role="presentation" className={styles.Overlay} onClick={closeModal} />
 
-            <div className={styles.Dialog} role="dialog" aria-modal="true">
+            <div className={styles.Dialog} role="dialog" aria-modal={modalOpen}>
                 <div className={styles.Content}>
-                    <div className={styles.ModalHeader}>
+                    <div className={styles.Header}>
                         {modalTitle && <h5 className={styles.Title}>{modalTitle}</h5>}
                         <button onClick={closeModal} className={styles.Button}>
                             <span className={styles.Close} />
                         </button>
                     </div>
-
-                    {modalContent}
+                    <div className={styles.Body}>{modalContent}</div>
                 </div>
             </div>
         </div>

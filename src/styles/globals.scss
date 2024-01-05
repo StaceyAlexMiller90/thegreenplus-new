@@ -30,13 +30,14 @@
     --spacing-84: #{utils.toRem(84)};
     --spacing-96: #{utils.toRem(96)};
     --spacing-128: #{utils.toRem(128)};
+    --spacing-180: #{utils.toRem(180)};
     --spacing-240: #{utils.toRem(240)};
     --font-xl: clamp(#{utils.toRem(40)}, 4vw, #{utils.toRem(80)});
     --font-l: clamp(#{utils.toRem(32)}, 4vw, #{utils.toRem(72)});
-    --font-m: clamp(#{utils.toRem(24)}, 4vw, #{utils.toRem(53)});
-    --font-s: clamp(#{utils.toRem(24)}, 2vw, #{utils.toRem(32)});
+    --font-m: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(53)});
+    --font-s: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(32)});
     --font-xs: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(38)});
-    --font-xxs: clamp(#{utils.toRem(16)}, 2vw, #{utils.toRem(24)});
+    --font-xxs: clamp(#{utils.toRem(16)}, 1.3vw, #{utils.toRem(24)});
 }
 
 /* Box sizing rules */
@@ -54,6 +55,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     font-family: var(--primary-font);
+    line-height: 1.2;
     background-color: var(--off-black);
     color: var(--white);
     overflow-x: hidden;
@@ -90,19 +92,41 @@ dd {
     padding: 0;
 }
 
+h1 {
+    font-size: var(--font-xl);
+}
+
+h2,
+h3 {
+    font-size: var(--font-s);
+}
+
+h4,
+h5,
+h6 {
+    font-size: var(--font-xxs);
+    margin-bottom: var(--spacing-8);
+
+    @media (--medium) {
+        margin-bottom: var(--spacing-16);
+    }
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: var(--spacing-12);
+
+    @media (--large) {
+        margin-bottom: var(--spacing-24);
+    }
+}
+
 /* Set core body defaults */
 body {
     min-height: 100vh;
-    scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     font-weight: 300;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-    list-style: none;
 }
 
 a,
@@ -117,8 +141,16 @@ a:visited {
     color: inherit;
 }
 
+ol,
+ul {
+    margin: var(--spacing-16) var(--spacing-16);
+
+    @media (--medium) {
+        margin: var(--spacing-16) var(--spacing-32);
+    }
+}
+
 li {
-    list-style: none;
     text-decoration: none;
 }
 

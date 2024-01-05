@@ -11,14 +11,6 @@
     font-size: var(--font-xxs);
 }
 
-.Paragraph {
-    margin-bottom: var(--spacing-12);
-
-    @media (--large) {
-        margin-bottom: var(--spacing-24);
-    }
-}
-
 .Grid {
     display: grid;
     grid-template-columns: 1fr;
