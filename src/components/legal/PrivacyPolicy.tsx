@@ -1,4 +1,4 @@
-const PrivacyModal = () => (
+const PrivacyPolicy = () => (
     <div>
         <p>
             At The Green Plus, accessible from thegreenplus.nl, one of our main priorities is the
@@ -159,4 +159,4 @@ const PrivacyModal = () => (
     </div>
 );
 
-export default PrivacyModal;
+export default PrivacyPolicy;

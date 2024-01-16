@@ -17,8 +17,8 @@ interface ButtonProps extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement>
 
 type ButtonOrAnchorProps = AnchorProps | ButtonProps;
 
-const Button = ({ children, variant = 'primary', ...other }: ButtonOrAnchorProps) => {
-    const isAnchor = 'href' in other;
+const Button = ({ children, variant = 'primary', ...rest }: ButtonOrAnchorProps) => {
+    const isAnchor = 'href' in rest;
 
     const classes = classNames(
         styles.Button,
@@ -27,14 +27,14 @@ const Button = ({ children, variant = 'primary', ...other }: ButtonOrAnchorProps
     );
 
     if (isAnchor) {
-        const { href, ...anchorProps } = other as AnchorProps;
+        const { href, ...anchorProps } = rest as AnchorProps;
         return (
             <a href={href} className={classes} {...anchorProps}>
                 {children}
             </a>
         );
     } else {
-        const { onClick, ...buttonProps } = other as ButtonProps;
+        const { onClick, ...buttonProps } = rest as ButtonProps;
         return (
             <button onClick={onClick} className={classes} {...buttonProps}>
                 {children}

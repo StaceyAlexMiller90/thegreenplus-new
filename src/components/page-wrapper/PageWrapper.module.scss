@@ -1,0 +1,26 @@
+.Title {
+    font-size: var(--font-large);
+    margin-bottom: var(--spacing-16);
+}
+
+.Container {
+    margin-top: var(--spacing-84);
+    padding-top: var(--spacing-24);
+    padding-left: var(--spacing-24);
+    padding-right: var(--spacing-24);
+
+    @media (--large) {
+        padding-left: var(--spacing-64);
+        padding-right: var(--spacing-64);
+        margin-top: var(--spacing-128);
+    }
+
+    @media (--xlarge) {
+        padding-top: var(--spacing-48);
+        margin-top: var(--spacing-128);
+    }
+
+    @media (--4xl) {
+        margin-top: var(--spacing-240);
+    }
+}

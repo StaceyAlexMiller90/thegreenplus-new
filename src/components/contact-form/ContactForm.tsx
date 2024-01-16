@@ -1,93 +1,175 @@
 'use client';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import classNames from 'classnames';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
 import Button from '../button/Button';
-import emailjs from '@emailjs/browser';
+import styles from './ContactForm.module.scss';
+import { emailRegex, nameRegex, messageRegex } from '../../utils/regex';
+import Loader from '../loader/Loader';
+import Errors from './Errors';
+
+export interface FormInputs {
+    name: string;
+    email: string;
+    message: string;
+    privacyConsent: boolean;
+}
 
 const ContactForm = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
-    } = useForm();
+        formState: { errors, isDirty, isValid, isSubmitting },
+    } = useForm<FormInputs>({ criteriaMode: 'all', mode: 'onBlur', reValidateMode: 'onSubmit' });
 
-    const onSubmit = data => {
-        console.log(data);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+
+    const onSubmit: SubmitHandler<FormInputs> = async ({ name, email, message }) => {
+        try {
+            const res = await fetch('/email', {
+                body: JSON.stringify({
+                    name,
+                    email,
+                    message,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+            });
+
+            const response = await res.json();
+
+            if (!response.ok || (!response.success && response.type === 'submission')) {
+                throw new Error('Something went wrong, please try again');
+            }
+
+            setSubmitted(true);
+        } catch (error) {
+            if (error && error instanceof Error) {
+                setErrorMessage(error.message);
+            }
+        }
     };
 
     return (
-        <div className="container w_limited container--contact">
-            <header className="header_headline header--contact">
-                <h2 id="response" className="splittext splitext--contact">
-                    Together we can make <br /> a change. Let&apos;s start today.
-                </h2>
-            </header>
-            <div className="contact-section">
-                <div className="contact-section__column contact-section__column--mobile">
-                    <p className="contact_fade">
-                        For more information about the options we offer, our project criteria,
-                        project portfolio or any other queries.
-                    </p>
-                </div>
-                <form className="contact-form" id="contact-form" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
+        <>
+            {isSubmitting ? <Loader label="sending email" /> : null}
+
+            {errorMessage ? <p className={styles.ErrorMessage}>{errorMessage}</p> : null}
+
+            {submitted ? (
+                <p className={styles.SuccessMessage}>Email submitted! Thank you!</p>
+            ) : (
+                <form className={styles.Form} onSubmit={handleSubmit(onSubmit)}>
+                    <div className={styles.Group}>
+                        <label htmlFor="name" className={styles.Label}>
+                            Name
+                        </label>
+                        <ErrorMessage errors={errors} name="name" render={Errors} />
                         <input
                             {...register('name', {
-                                required: true,
-                                maxLength: 30,
+                                required: 'Please enter your name',
+                                maxLength: {
+                                    value: 30,
+                                    message: 'Name cannnot be longer than 30 characters',
+                                },
                                 pattern: {
-                                    value: /^[0-9A-Za-z\s.,!?'"()\-]+$/,
-                                    message: 'Invalid input',
+                                    value: nameRegex,
+                                    message: 'Name cannot contain numbers',
                                 },
                             })}
                             type="text"
                             name="name"
-                            className="form-control"
+                            id="name"
+                            className={styles.Input}
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email address</label>
+                    <div className={styles.Group}>
+                        <label htmlFor="email" className={styles.Label}>
+                            Email
+                        </label>
+                        <ErrorMessage errors={errors} name="email" as="ul" render={Errors} />
                         <input
                             {...register('email', {
-                                required: true,
+                                required: 'Please enter your email address',
                                 pattern: {
-                                    value: /\S+@\S+\.\S+/,
+                                    value: emailRegex,
                                     message: 'Entered value does not match email format',
                                 },
                             })}
                             type="email"
                             name="email"
-                            className="form-control"
+                            id="email"
+                            className={styles.Input}
                         />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="message">Message</label>
+                    <div className={styles.Group}>
+                        <label htmlFor="message" className={styles.Label}>
+                            Your message
+                        </label>
+                        <ErrorMessage errors={errors} name="message" as="ul" render={Errors} />
                         <textarea
                             {...register('message', {
-                                required: true,
-                                maxLength: 1000,
+                                required: 'Please enter a message',
+                                maxLength: {
+                                    value: 1000,
+                                    message: 'Message cannot be longer than 1000 characters',
+                                },
                                 pattern: {
-                                    value: /^[0-9A-Za-z\s.,!?'"()\-]+$/,
+                                    value: messageRegex,
                                     message: 'Invalid input',
                                 },
                             })}
-                            className="form-control"
+                            className={classNames(styles.Input, styles.TextArea)}
+                            id="message"
                             name="message"
                             rows={5}
                         />
                     </div>
+                    <div className={styles.Group}>
+                        <ErrorMessage
+                            errors={errors}
+                            name="privacyConsent"
+                            as="ul"
+                            render={Errors}
+                        />
+                        <div className={styles.GroupInline}>
+                            <input
+                                {...register('privacyConsent', {
+                                    required:
+                                        'Please confirm you have read and accept our privacy policy and terms and conditions',
+                                })}
+                                className={classNames(styles.Input, styles.Checkbox)}
+                                name="privacyConsent"
+                                id="privacyConsent"
+                                type="checkbox"
+                            />
+                            <label htmlFor="privacyConsent" className={styles.Label}>
+                                I confirm that I have read and accept the{' '}
+                                <Button className={styles.Link} variant="naked" href="/privacy">
+                                    privacy policy
+                                </Button>{' '}
+                                and{' '}
+                                <Button className={styles.Link} variant="naked" href="/terms">
+                                    terms and conditions
+                                </Button>
+                            </label>
+                        </div>
+                    </div>
+                    <div className={styles.Button}>
+                        <Button
+                            variant="secondary"
+                            type="submit"
+                            disabled={!isDirty || !isValid || isSubmitting}>
+                            Submit
+                        </Button>
+                    </div>
                 </form>
-                <div className="contact-section__column contact-section__column--desktop">
-                    <p className="contact_fade contact-section__text--desktop">
-                        For more information about the options we offer, our project criteria,
-                        project portfolio or any other queries.
-                    </p>
-                    <Button variant="secondary" type="submit" form="contact-form">
-                        Submit
-                    </Button>
-                </div>
-            </div>
-        </div>
+            )}
+        </>
     );
 };
 

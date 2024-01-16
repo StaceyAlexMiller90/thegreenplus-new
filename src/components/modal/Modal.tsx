@@ -15,11 +15,22 @@ const Modal = () => {
         <div className={classNames(styles.Modal, { [styles.isOpen]: modalOpen })}>
             <div role="presentation" className={styles.Overlay} onClick={closeModal} />
 
-            <div className={styles.Dialog} role="dialog" aria-modal={modalOpen}>
+            <div
+                className={styles.Dialog}
+                role="dialog"
+                aria-modal={modalOpen}
+                aria-labelledby="modalTitle">
                 <div className={styles.Content}>
                     <div className={styles.Header}>
-                        {modalTitle && <h5 className={styles.Title}>{modalTitle}</h5>}
-                        <button onClick={closeModal} className={styles.Button}>
+                        {modalTitle && (
+                            <h5 id="modalTitle" className={styles.Title}>
+                                {modalTitle}
+                            </h5>
+                        )}
+                        <button
+                            aria-label="close modal"
+                            onClick={closeModal}
+                            className={styles.Button}>
                             <span className={styles.Close} />
                         </button>
                     </div>

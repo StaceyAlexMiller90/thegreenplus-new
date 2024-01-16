@@ -1,5 +1,5 @@
 .Heading {
-    font-size: var(--font-xs);
+    font-size: var(--font-small);
     margin-bottom: var(--spacing-16);
 
     @media (--large) {
@@ -8,7 +8,7 @@
 }
 
 .Body {
-    font-size: var(--font-xxs);
+    font-size: var(--font-xsmall);
 }
 
 .Grid {

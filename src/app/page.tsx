@@ -13,7 +13,9 @@ const HomePage = () => {
             <HonestSection />
             <StatementSection />
             <EasySection />
-            <ContactSection />
+            <div id="contact">
+                <ContactSection />
+            </div>
         </>
     );
 };

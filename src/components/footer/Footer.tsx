@@ -1,15 +1,15 @@
 'use client';
 import { MouseEventHandler } from 'react';
 import { useModalContext } from 'src/context/ModalContext';
-import Imprint from './Imprint';
-import Privacy from './Privacy';
-import Terms from './Terms';
+import Imprint from '../legal/Imprint';
+import PrivacyPolicy from '../legal/PrivacyPolicy';
+import Terms from '../legal/Terms';
 import styles from './Footer.module.scss';
 import { ModalData } from '../../hooks/useModal';
 
 const MODALS: Record<string, Partial<ModalData>> = {
     privacy: {
-        modalContent: <Privacy />,
+        modalContent: <PrivacyPolicy />,
         modalTitle: 'Privacy Policy',
     },
     imprint: {
@@ -36,10 +36,10 @@ const Footer = () => {
     return (
         <footer className={styles.Footer}>
             <button className={styles.Link} value="privacy" onClick={openModal}>
-                Privacy |
+                Privacy
             </button>
             <button className={styles.Link} value="imprint" onClick={openModal}>
-                Imprint |
+                Imprint
             </button>
             <button className={styles.Link} value="terms" onClick={openModal}>
                 Terms & Conditions

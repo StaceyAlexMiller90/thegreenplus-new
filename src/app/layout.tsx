@@ -29,7 +29,7 @@ const stolzl = localFont({
     ],
 });
 
-const RootLayout: FC<PropsWithChildren> = ({ children }) => {
+const RootLayout = ({ children }: PropsWithChildren) => {
     return (
         <html className={stolzl.variable}>
             <body>

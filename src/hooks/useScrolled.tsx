@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-const useIsScrolled = (scrollThreshold?: number): boolean => {
+const useIsScrolled = (scrollThreshold?: number) => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     useEffect(() => {
         let isScrollingTimeout: NodeJS.Timeout;
 
-        const handleScroll = (): void => {
+        const handleScroll = () => {
             clearTimeout(isScrollingTimeout);
             isScrollingTimeout = setTimeout(() => {
                 setIsScrolled(window.pageYOffset > (scrollThreshold || window.innerHeight));
@@ -15,7 +15,7 @@ const useIsScrolled = (scrollThreshold?: number): boolean => {
 
         window.addEventListener('scroll', handleScroll);
 
-        return (): void => {
+        return () => {
             clearTimeout(isScrollingTimeout);
             window.removeEventListener('scroll', handleScroll);
         };

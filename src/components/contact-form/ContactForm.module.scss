@@ -1,0 +1,96 @@
+@use '../../styles/config/utils' as utils;
+
+.Group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-16);
+}
+
+.GroupInline {
+    display: flex;
+    flex-direction: row;
+}
+
+.Label {
+    margin-bottom: var(--spacing-8);
+    font-weight: 500;
+
+    .GroupInline & {
+        margin-left: var(--spacing-8);
+    }
+}
+
+.Input {
+    border-radius: var(--spacing-4);
+    border: 1px solid var(--black);
+    background-color: var(--black);
+    color: var(--white);
+    padding: var(--spacing-8);
+
+    &:focus {
+        outline: 0;
+        border: 1px solid var(--primary-green);
+        box-shadow: 0 0 0.25rem var(--primary-green);
+    }
+}
+
+.CheckboxWrapper {
+    display: flex;
+
+    .Checkbox:focus {
+        outline: 0;
+        border: 1px solid var(--primary-green);
+        box-shadow: 0 0 0.25rem var(--primary-green);
+    }
+}
+
+.Checkbox {
+    cursor: pointer;
+    height: utils.toRem(16);
+    width: utils.toRem(16);
+    accent-color: var(--primary-green);
+}
+
+.TextArea {
+    resize: none;
+}
+
+.ValidationList {
+    margin: 0 0 0 var(--spacing-16);
+
+    .GroupInline & {
+        flex-direction: column;
+    }
+}
+
+.ValidationMessage {
+    color: var(--primary-green);
+    font-size: var(--font-xxsmall);
+    margin-bottom: var(--spacing-8);
+}
+
+.ErrorMessage {
+    color: var(--primary-green);
+    font-size: var(--font-small);
+    font-weight: 500;
+}
+
+.SuccessMessage {
+    font-size: var(--font-small);
+    font-weight: 500;
+}
+
+.Link {
+    display: inline;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: var(--primary-green);
+
+    &:visited {
+        color: var(--primary-green);
+    }
+
+    &:hover {
+        color: var(--white);
+    }
+}
