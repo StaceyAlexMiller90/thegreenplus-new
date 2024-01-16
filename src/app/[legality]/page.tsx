@@ -1,5 +1,4 @@
 'use client';
-
 import { usePathname } from 'next/navigation';
 import PrivacyPolicy from '../../components/legal/PrivacyPolicy';
 import PageWrapper from 'src/components/page-wrapper/PageWrapper';
