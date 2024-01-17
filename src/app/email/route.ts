@@ -11,7 +11,10 @@ interface ResponseData {
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
 
-const sendSuccessAutoReply = async ({ name, email }: Partial<FormInputs>) => {
+const sendSuccessAutoReply = async ({
+    name,
+    email,
+}: Partial<FormInputs>): Promise<ResponseData> => {
     const msg = {
         to: email,
         from: process.env.HELLO_EMAIL as string,
@@ -29,11 +32,11 @@ const sendSuccessAutoReply = async ({ name, email }: Partial<FormInputs>) => {
     }
 };
 
-export const sendContactFormSubmission = async ({
+const sendContactFormSubmission = async ({
     name,
     email,
     message,
-}: Omit<FormInputs, 'privacyConsent'>) => {
+}: Omit<FormInputs, 'privacyConsent'>): Promise<ResponseData> => {
     const msg = {
         to: process.env.HELLO_EMAIL as string,
         from: process.env.HELLO_EMAIL as string,

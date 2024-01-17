@@ -8,6 +8,8 @@
 }
 
 .Body {
+    display: flex;
+    flex-direction: column;
     font-size: var(--font-xsmall);
 }
 

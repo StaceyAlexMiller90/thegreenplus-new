@@ -1,6 +1,6 @@
 'use client';
 import { ReactNode, useState } from 'react';
-import styles from '../components/modal/Modal.module.scss';
+import useScrollLock from './useScrollLock';
 
 export interface ModalData {
     modalOpen: boolean;
@@ -9,6 +9,7 @@ export interface ModalData {
 }
 
 const useModal = () => {
+    const { setScrollLocked } = useScrollLock();
     const [modal, setModal] = useState<ModalData>({
         modalOpen: false,
         modalContent: null,
@@ -16,24 +17,9 @@ const useModal = () => {
     });
 
     const toggleModal = (toBeOpened: boolean, modalContent: ReactNode, modalTitle: string) => {
-        if (!toBeOpened) {
-            setModal({ modalOpen: false, modalContent: null, modalTitle: '' });
-            document.body.classList.remove(styles.ScrollLock);
-            return;
-        }
-
-        if (toBeOpened) {
-            if (modal.modalOpen) {
-                setModal({ modalOpen: false, modalContent: null, modalTitle: '' });
-                setTimeout(() => {
-                    setModal({ modalOpen: true, modalContent, modalTitle });
-                }, 0.25);
-            } else {
-                setModal({ modalOpen: true, modalContent, modalTitle });
-            }
-            document.body.classList.add(styles.ScrollLock);
-            return;
-        }
+        setModal({ modalOpen: toBeOpened, modalContent, modalTitle });
+        setScrollLocked(toBeOpened);
+        return;
     };
 
     return {

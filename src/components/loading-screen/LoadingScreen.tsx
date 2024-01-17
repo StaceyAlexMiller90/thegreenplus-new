@@ -1,17 +1,83 @@
+'use client';
+import { m } from 'framer-motion';
+import styles from './LoadingScreen.module.scss';
+import { useEffect } from 'react';
+import useScrollLock from 'src/hooks/useScrollLock';
+import { scrollToTop } from 'src/utils/utils';
+
+const variants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+};
+
+const variantsWithBg = {
+    initial: { clipPath: 'inset(0 100% 0 0)' },
+    animate: { clipPath: 'inset(0 0 0 0)' },
+};
+
 const LoadingScreen = () => {
+    const { setScrollLocked } = useScrollLock();
+
+    useEffect(() => {
+        setScrollLocked(true);
+        setTimeout(() => setScrollLocked(false), 3100);
+
+        return () => scrollToTop();
+    }, [setScrollLocked]);
+
     return (
-        <div className="loading d-flex flex-column justify-content-center align-items-center text-uppercase">
-            <div className="container">
-                <h4 className="text_1">
-                    <span className="no_outline">Leave a</span>
-                    <span className="th1">Legacy</span>
-                </h4>
-                <h4 className="text_2">
-                    <span className="no_outline">Not a</span>
-                    <span className="th1">Footprint</span>
-                </h4>
-            </div>
-        </div>
+        <m.div
+            initial={{ y: '0%' }}
+            animate={{ y: '-100%' }}
+            transition={{ duration: 1, delay: 2 }}
+            className={styles.Screen}>
+            <m.h2
+                initial="initial"
+                animate="animate"
+                transition={{
+                    staggerChildren: 0.05,
+                }}
+                className={styles.Heading}
+                aria-label="Leave a legacy. Not a footprint">
+                {'Leave a '.split('').map((char, index) => {
+                    return (
+                        <m.span aria-hidden="true" key={`${char}-${index}`} variants={variants}>
+                            {char}
+                        </m.span>
+                    );
+                })}
+
+                <m.span
+                    aria-hidden="true"
+                    transition={{ duration: 0.5 }}
+                    variants={variantsWithBg}
+                    className={styles.TextBackground}>
+                    Legacy
+                </m.span>
+
+                <m.span
+                    initial="initial"
+                    animate="animate"
+                    transition={{ staggerChildren: 0.05, delayChildren: 1.2 }}
+                    className={styles.Line}
+                    aria-hidden="true">
+                    {'Not a '.split('').map((char, index) => {
+                        return (
+                            <m.span key={`${char}-${index}`} variants={variants}>
+                                {char}
+                            </m.span>
+                        );
+                    })}
+
+                    <m.span
+                        transition={{ duration: 0.5 }}
+                        variants={variantsWithBg}
+                        className={styles.TextBackground}>
+                        Footprint
+                    </m.span>
+                </m.span>
+            </m.h2>
+        </m.div>
     );
 };
 

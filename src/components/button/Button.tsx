@@ -1,5 +1,5 @@
 'use client';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
@@ -12,7 +12,7 @@ interface AnchorProps extends BaseProps, AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 interface ButtonProps extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
-    onClick?: () => void;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 type ButtonOrAnchorProps = AnchorProps | ButtonProps;

@@ -1,0 +1,13 @@
+.Info {
+    @media (--medium) {
+        z-index: 99;
+        position: relative;
+    }
+}
+
+.Hero {
+    // Figure out way to do this that doesn't require max-width
+    @media (--mobile-only) {
+        transform: none !important;
+    }
+}

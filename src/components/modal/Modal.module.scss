@@ -1,19 +1,16 @@
+@use '../../styles/config/utils';
+
 .Modal {
     position: fixed;
     top: 0;
+    right: 0;
     width: 100%;
+    background-color: var(--black);
+    max-width: utils.toRem(450);
     height: 100%;
-    opacity: 0;
     overscroll-behavior: contain;
     overflow-y: scroll;
-    transform: translate(0, -100%);
-    transition: opacity 0.15s linear, transform 0.3s ease-out;
-
-    &.isOpen {
-        transform: none;
-        opacity: 1;
-        z-index: 150;
-    }
+    z-index: 150;
 }
 
 .Title {
@@ -21,22 +18,8 @@
     margin-bottom: 0;
 }
 
-.Dialog {
-    position: relative;
-
-    @media (--medium) {
-        margin: var(--spacing-16) auto var(--spacing-16) auto;
-        max-width: 70vw;
-    }
-
-    @media (--2xl) {
-        max-width: 45vw;
-    }
-}
-
 .Content {
     position: relative;
-    background-color: var(--black);
 }
 
 .Header {
@@ -98,21 +81,14 @@
 
 .Overlay {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--black);
     pointer-events: none;
-    background-color: black;
-    transition: opacity 0.15s ease 0.3s;
-    opacity: 0;
-    will-change: opacity;
-    transform: translate(0, 100%);
 
-    .isOpen & {
-        opacity: 0.5;
-        transform: translate(0, 0);
+    &.isOpen {
+        pointer-events: all;
     }
-}
-
-.ScrollLock {
-    overflow: hidden;
 }

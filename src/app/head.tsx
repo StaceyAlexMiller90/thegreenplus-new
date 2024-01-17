@@ -35,8 +35,8 @@ const Head = () => {
             <meta name="twitter:image" content="/logo.svg" />
 
             <meta name="robots" content="index,follow" />
-            <link rel="canonical" href="https://thegreenplus.nl" precedence="default" />
-            <link rel="shortlink" href="https://thegreenplus.nl" precedence="default" />
+            <link rel="canonical" href="https://thegreenplus.nl" />
+            <link rel="shortlink" href="https://thegreenplus.nl" />
 
             <title>The Green Plus</title>
         </>

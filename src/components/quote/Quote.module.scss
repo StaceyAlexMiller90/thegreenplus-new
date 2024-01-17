@@ -17,15 +17,23 @@
 }
 
 .Quote {
-    line-height: 1;
     text-transform: uppercase;
     color: var(--white);
 }
 
+.Main {
+    display: block;
+}
+
 .SubQuote {
-    line-height: 1.5;
+    display: block;
     text-transform: uppercase;
     font-size: var(--font-large);
+    font-weight: 300;
     color: var(--white);
-    margin-bottom: var(--spacing-16);
+    margin-top: var(--spacing-16);
+}
+
+.Span {
+    display: inline-block;
 }

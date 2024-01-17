@@ -7,9 +7,11 @@ const Video = () => {
     const [poster, setPoster] = useState('');
 
     useEffect(() => {
-        if (ref.current) {
-            ref.current.play();
-        }
+        setTimeout(() => {
+            if (ref.current) {
+                ref.current.play();
+            }
+        }, 3000);
     }, []);
 
     return (

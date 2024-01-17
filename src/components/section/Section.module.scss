@@ -86,3 +86,13 @@
         padding-right: var(--spacing-180);
     }
 }
+
+.AnimationWrapper {
+    height: 100%;
+    width: 100%;
+
+    @media (--medium) {
+        display: flex;
+        align-items: center;
+    }
+}
