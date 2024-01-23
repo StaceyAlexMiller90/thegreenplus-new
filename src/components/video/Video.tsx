@@ -23,7 +23,8 @@ const Video = () => {
             playsInline
             className={styles.Video}
             onError={() => setPoster('./poster.jpg')}
-            poster={poster}>
+            poster={poster}
+            preload="auto">
             <source src="./greenplus.mp4" type="video/mp4" />
             <source src="./greenplus.webm" type="video/webm" />
         </video>

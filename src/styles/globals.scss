@@ -36,8 +36,8 @@
     --font-headline: clamp(#{utils.toRem(40)}, 4vw, #{utils.toRem(80)});
     --font-subheadline: clamp(#{utils.toRem(32)}, 4vw, #{utils.toRem(72)});
     --font-large: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(53)});
-    --font-medium: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(32)});
-    --font-small: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(38)});
+    --font-medium: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(38)});
+    --font-small: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(32)});
     --font-xsmall: clamp(#{utils.toRem(16)}, 1.3vw, #{utils.toRem(24)});
     --font-xxsmall: clamp(#{utils.toRem(12)}, 1.3vw, #{utils.toRem(16)});
 }

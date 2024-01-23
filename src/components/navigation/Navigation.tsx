@@ -1,4 +1,5 @@
 'use client';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { m } from 'framer-motion';
 import useScrolled from '@/hooks/useScrolled';
@@ -15,19 +16,23 @@ const Navigation = () => {
     const isHomePage = pathname === '/';
 
     return (
-        <nav className={styles.Navigation}>
-            <Button variant="naked" {...(isHomePage ? { onClick: scrollToTop } : { href: '/' })}>
-                <Logo simplified={isScrolled} />
-            </Button>
+        <LazyMotion strict features={domAnimation}>
+            <nav className={styles.Navigation}>
+                <Button
+                    variant="naked"
+                    {...(isHomePage ? { onClick: scrollToTop } : { href: '/' })}>
+                    <Logo simplified={isScrolled} />
+                </Button>
 
-            <m.div
-                initial={{ x: 300 }}
-                animate={{ x: isScrolled ? 0 : 300 }}
-                transition={{ duration: 0.3 }}
-                className={styles.Button}>
-                <Button href="/#contact">Contact</Button>
-            </m.div>
-        </nav>
+                <m.div
+                    initial={{ x: 300 }}
+                    animate={{ x: isScrolled ? 0 : 300 }}
+                    transition={{ duration: 0.2 }}
+                    className={styles.Button}>
+                    <Button href="/#contact">Contact</Button>
+                </m.div>
+            </nav>
+        </LazyMotion>
     );
 };
 

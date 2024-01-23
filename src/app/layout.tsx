@@ -1,10 +1,39 @@
 import { PropsWithChildren } from 'react';
+import { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 import ModalContextProvider from '../context/ModalContextProvider';
 
 import '../styles/globals.scss';
+
+export const metadata: Metadata = {
+    metadataBase: new URL('https://thegreenplus.nl'),
+    title: 'The Green Plus',
+    description: 'Offset your travel. Honest & Easy.',
+    applicationName: 'The Green Plus',
+    referrer: 'origin-when-cross-origin',
+    keywords: ['Co2', 'carbon offsetting', 'offset', 'travel', 'emissions'],
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    openGraph: {
+        title: 'The Green Plus',
+        description: 'Offset your travel. Honest & Easy.',
+        url: 'https://thegreenplus.nl',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'The Green Plus',
+        description: 'Offset your travel. Honest & Easy.',
+    },
+};
+
+export const viewport: Viewport = {
+    themeColor: '#151515',
+};
 
 const stolzl = localFont({
     variable: '--primary-font',
@@ -30,7 +59,7 @@ const stolzl = localFont({
 
 const RootLayout = ({ children }: PropsWithChildren) => {
     return (
-        <html style={{ overflow: 'hidden' }} className={stolzl.variable}>
+        <html className={stolzl.variable}>
             <body>
                 <ModalContextProvider>
                     <Header />

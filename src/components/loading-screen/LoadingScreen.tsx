@@ -16,7 +16,7 @@ const variantsWithBg = {
 };
 
 const LoadingScreen = () => {
-    const { setScrollLocked } = useScrollLock();
+    const { setScrollLocked } = useScrollLock(true);
 
     useEffect(() => {
         setScrollLocked(true);

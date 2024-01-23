@@ -9,8 +9,8 @@ const useIsScrolled = (scrollThreshold?: number) => {
         const handleScroll = () => {
             clearTimeout(isScrollingTimeout);
             isScrollingTimeout = setTimeout(() => {
-                setIsScrolled(window.pageYOffset > (scrollThreshold || window.innerHeight));
-            }, 200);
+                setIsScrolled(window.scrollY > (scrollThreshold || window.innerHeight));
+            }, 100);
         };
 
         window.addEventListener('scroll', handleScroll);
