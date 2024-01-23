@@ -1,6 +1,6 @@
 'use client';
 import { createContext, ReactNode, useContext } from 'react';
-import { ModalData } from '../hooks/useModal';
+import { ModalData } from '@/hooks/useModal';
 
 export interface ModalContextProps extends ModalData {
     toggleModal(toBeOpened: boolean, modalContent?: ReactNode, modalTitle?: string): void;

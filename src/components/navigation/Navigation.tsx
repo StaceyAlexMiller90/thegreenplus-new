@@ -1,10 +1,10 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import { m } from 'framer-motion';
-import useScrolled from '../../hooks/useScrolled';
-import Button from '../button/Button';
-import Logo from '../logo/Logo';
-import { scrollToTop } from '../../utils/utils';
+import useScrolled from '@/hooks/useScrolled';
+import Button from '@/components/button/Button';
+import Logo from '@/components/logo/Logo';
+import { scrollToTop } from '@/utils/utils';
 
 import styles from './Navigation.module.scss';
 

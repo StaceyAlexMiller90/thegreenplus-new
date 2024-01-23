@@ -1,6 +1,6 @@
+import IntroVideo from '@/components/video/Video';
+import Quote from '@/components/quote/Quote';
 import Section from './Section';
-import IntroVideo from '../video/Video';
-import Quote from '../quote/Quote';
 import styles from './HeroSection.module.scss';
 
 const HeroSection = () => {

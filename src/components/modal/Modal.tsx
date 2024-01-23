@@ -1,7 +1,7 @@
 'use client';
 import { m, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
-import { useModalContext } from '../../context/ModalContext';
+import { useModalContext } from '@/context/ModalContext';
 
 import styles from './Modal.module.scss';
 

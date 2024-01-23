@@ -2,8 +2,8 @@
 import { m } from 'framer-motion';
 import styles from './LoadingScreen.module.scss';
 import { useEffect } from 'react';
-import useScrollLock from 'src/hooks/useScrollLock';
-import { scrollToTop } from 'src/utils/utils';
+import useScrollLock from '@/hooks/useScrollLock';
+import { scrollToTop } from '@/utils/utils';
 
 const variants = {
     initial: { opacity: 0 },

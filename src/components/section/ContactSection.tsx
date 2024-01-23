@@ -1,6 +1,7 @@
 import Section from './Section';
+import ContactForm from '@/components/contact-form/ContactForm';
+
 import styles from './ContactSection.module.scss';
-import ContactForm from '../contact-form/ContactForm';
 
 const ContactSection = () => {
     return (

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
-import { FormInputs } from '../../components/contact-form/ContactForm';
-import { isValidEmail, isValidName, isValidMessage } from '../../utils/regex';
+import { FormInputs } from '@/components/contact-form/ContactForm';
+import { isValidEmail, isValidName, isValidMessage } from '../../../utils/regex';
 
 interface ResponseData {
     success: boolean;

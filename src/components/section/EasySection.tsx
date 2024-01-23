@@ -1,11 +1,12 @@
 import { useRef } from 'react';
+import Image from 'next/image';
 import { useScroll, m } from 'framer-motion';
-import useParallax from '../../hooks/useParallax';
+import useParallax from '@/hooks/useParallax';
+import Grid from '@/components/grid/Grid';
+import HeaderHighlight from '@/components/header-highlight/HeaderHighlight';
 import Section from './Section';
 import styles from './EasySection.module.scss';
-import Grid from '../grid/Grid';
-import HeaderHighlight from '../header-highlight/HeaderHighlight';
-import Image from 'next/image';
+
 import DataImage from '../../../public/Data.png';
 
 const EasySection = () => {

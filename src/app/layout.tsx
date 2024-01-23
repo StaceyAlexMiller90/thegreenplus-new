@@ -1,12 +1,8 @@
-'use client';
 import { PropsWithChildren } from 'react';
 import localFont from 'next/font/local';
-import { LazyMotion, domAnimation } from 'framer-motion';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
-import Modal from '../components/modal/Modal';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 import ModalContextProvider from '../context/ModalContextProvider';
-import LoadingScreen from '../components/loading-screen/LoadingScreen';
 
 import '../styles/globals.scss';
 
@@ -34,20 +30,15 @@ const stolzl = localFont({
 
 const RootLayout = ({ children }: PropsWithChildren) => {
     return (
-        <LazyMotion strict features={domAnimation}>
-            {/* Start with overflow hidden - will be reset when LoadingScreen finishes animating */}
-            <html style={{ overflow: 'hidden' }} className={stolzl.variable}>
-                <body>
-                    <LoadingScreen />
+        <html style={{ overflow: 'hidden' }} className={stolzl.variable}>
+            <body>
+                <ModalContextProvider>
                     <Header />
                     <main>{children}</main>
-                    <ModalContextProvider>
-                        <Modal />
-                        <Footer />
-                    </ModalContextProvider>
-                </body>
-            </html>
-        </LazyMotion>
+                    <Footer />
+                </ModalContextProvider>
+            </body>
+        </html>
     );
 };
 

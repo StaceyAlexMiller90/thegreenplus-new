@@ -1,11 +1,11 @@
 'use client';
 import { MouseEventHandler } from 'react';
-import { useModalContext } from '../../context/ModalContext';
-import Imprint from '../legal/Imprint';
-import PrivacyPolicy from '../legal/PrivacyPolicy';
-import Terms from '../legal/Terms';
-import { ModalData } from '../../hooks/useModal';
-import Button from '../button/Button';
+import { useModalContext } from '@/context/ModalContext';
+import Imprint from '@/components/legal/Imprint';
+import PrivacyPolicy from '@/components/legal/PrivacyPolicy';
+import Terms from '@/components/legal/Terms';
+import { ModalData } from '@/hooks/useModal';
+import Button from '@/components/button/Button';
 
 import styles from './Footer.module.scss';
 
@@ -28,6 +28,7 @@ const Footer = () => {
     const { toggleModal } = useModalContext();
 
     const openModal: MouseEventHandler<HTMLButtonElement> = e => {
+        e.preventDefault();
         toggleModal(
             true,
             MODALS[e.currentTarget.value].modalContent,

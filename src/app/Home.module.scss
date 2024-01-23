@@ -6,7 +6,7 @@
 }
 
 .Hero {
-    // Figure out way to do this that doesn't require max-width
+    // TODO Figure out way to do this that doesn't require max-width
     @media (--mobile-only) {
         transform: none !important;
     }

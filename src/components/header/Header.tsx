@@ -1,5 +1,4 @@
-import Logo from '../logo/Logo';
-import Navigation from '../navigation/Navigation';
+import Navigation from '@/components/navigation/Navigation';
 
 import styles from './Header.module.scss';
 

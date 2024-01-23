@@ -15,6 +15,8 @@ const HeaderHighlight = ({ heading, highlightSubstring }: HeaderHighlightProps) 
 
     const parts = heading.split(highlightSubstring);
 
+    console.log(isInView);
+
     return (
         <h2 ref={ref} className={styles.Header}>
             {parts[0]}

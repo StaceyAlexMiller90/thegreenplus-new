@@ -1,11 +1,9 @@
-'use client';
-import { usePathname } from 'next/navigation';
-import PrivacyPolicy from '../../components/legal/PrivacyPolicy';
-import PageWrapper from 'src/components/page-wrapper/PageWrapper';
-import Terms from 'src/components/legal/Terms';
+import PrivacyPolicy from '@/components/legal/PrivacyPolicy';
+import PageWrapper from '@/components/page-wrapper/PageWrapper';
+import Terms from '@/components/legal/Terms';
 
-const LegalPage = () => {
-    const pathname = usePathname();
+const LegalPage = ({ params }: { params: { legality: string } }) => {
+    const pathname = params.legality;
 
     return (
         <PageWrapper title={pathname === '/privacy' ? 'Privacy Policy' : 'Terms and Conditions'}>

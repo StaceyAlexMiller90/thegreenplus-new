@@ -3,18 +3,20 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import Button from '../button/Button';
-import styles from './ContactForm.module.scss';
-import { emailRegex, nameRegex, messageRegex } from '../../utils/regex';
-import Loader from '../loader/Loader';
+import Button from '@/components/button/Button';
+import { emailRegex, nameRegex, messageRegex } from '@/utils/regex';
+import Loader from '@/components/loader/Loader';
 import Errors from './Errors';
 
+import styles from './ContactForm.module.scss';
 export interface FormInputs {
     name: string;
     email: string;
     message: string;
     privacyConsent: boolean;
 }
+
+// TODO update to use server actions
 
 const ContactForm = () => {
     const {
@@ -28,7 +30,7 @@ const ContactForm = () => {
 
     const onSubmit: SubmitHandler<FormInputs> = async ({ name, email, message }) => {
         try {
-            const res = await fetch('/email', {
+            const res = await fetch('/api/email', {
                 body: JSON.stringify({
                     name,
                     email,

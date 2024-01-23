@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import { useScroll, m } from 'framer-motion';
-import useParallax from '../../hooks/useParallax';
+import useParallax from '@/hooks/useParallax';
+import Grid from '@/components/grid/Grid';
+import HeaderHighlight from '@/components/header-highlight/HeaderHighlight';
 import Section from './Section';
 import styles from './HonestSection.module.scss';
-import Grid from '../grid/Grid';
-import HeaderHighlight from '../header-highlight/HeaderHighlight';
 
 const HonestSection = () => {
     const ref = useRef(null);
