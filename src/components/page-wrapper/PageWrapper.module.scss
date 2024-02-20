@@ -1,13 +1,15 @@
 .Title {
     font-size: var(--font-large);
     margin-bottom: var(--spacing-16);
+    text-transform: capitalize;
 }
 
 .Container {
     margin-top: var(--spacing-84);
-    padding-top: var(--spacing-24);
-    padding-left: var(--spacing-24);
-    padding-right: var(--spacing-24);
+    padding-top: var(--spacing-32);
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+    padding-bottom: var(--spacing-32);
 
     @media (--large) {
         padding-left: var(--spacing-64);
@@ -16,7 +18,6 @@
     }
 
     @media (--xlarge) {
-        padding-top: var(--spacing-48);
         margin-top: var(--spacing-128);
     }
 

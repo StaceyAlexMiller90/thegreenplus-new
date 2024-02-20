@@ -1,9 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
-import Header from '@/components/header/Header';
-import Footer from '@/components/footer/Footer';
-import ModalContextProvider from '../context/ModalContextProvider';
+import Body from '@/components/body/Body';
 
 import '../styles/globals.scss';
 
@@ -60,13 +58,7 @@ const stolzl = localFont({
 const RootLayout = ({ children }: PropsWithChildren) => {
     return (
         <html className={stolzl.variable}>
-            <body>
-                <ModalContextProvider>
-                    <Header />
-                    <main>{children}</main>
-                    <Footer />
-                </ModalContextProvider>
-            </body>
+            <Body>{children}</Body>
         </html>
     );
 };

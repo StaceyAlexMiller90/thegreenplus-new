@@ -1,0 +1,14 @@
+.Text {
+    margin-bottom: var(--spacing-16);
+}
+
+.Link {
+    display: inline;
+    color: var(--primary-green);
+    text-decoration: underline;
+
+    &:visited {
+        color: var(--primary-green);
+        text-decoration: underline;
+    }
+}

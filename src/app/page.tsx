@@ -8,24 +8,33 @@ import EasySection from '@/components/section/EasySection';
 import ContactSection from '@/components/section/ContactSection';
 import LoadingScreen from '@/components/loading-screen/LoadingScreen';
 import Modal from '@/components/modal/Modal';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
+import ModalContextProvider from '@/context/ModalContextProvider';
 
 import styles from './Home.module.scss';
 
 const HomePage = () => {
     return (
         <LazyMotion strict features={domAnimation}>
-            <Modal />
-            <LoadingScreen />
-            <HeroSection />
-            <div className={styles.Info}>
-                <InfoSection />
-            </div>
-            <HonestSection />
-            <StatementSection />
-            <EasySection />
-            <div id="contact">
-                <ContactSection />
-            </div>
+            <ModalContextProvider>
+                <Header />
+                <main>
+                    <Modal />
+                    <LoadingScreen />
+                    <HeroSection />
+                    <div className={styles.Info}>
+                        <InfoSection />
+                    </div>
+                    <HonestSection />
+                    <StatementSection />
+                    <EasySection />
+                    <div id="contact">
+                        <ContactSection />
+                    </div>
+                </main>
+                <Footer />
+            </ModalContextProvider>
         </LazyMotion>
     );
 };

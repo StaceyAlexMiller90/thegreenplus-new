@@ -1,11 +1,16 @@
+import classNames from 'classnames';
 import Navigation from '@/components/navigation/Navigation';
 
 import styles from './Header.module.scss';
 
-const Header = () => {
+interface Header {
+    inverted?: boolean;
+}
+
+const Header = ({ inverted }: Header) => {
     return (
-        <header className={styles.Header}>
-            <Navigation />
+        <header className={classNames(styles.Header, { [styles.isInverted]: inverted })}>
+            <Navigation inverted={inverted} />
         </header>
     );
 };

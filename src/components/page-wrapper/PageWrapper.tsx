@@ -1,15 +1,21 @@
+'use client';
 import { ReactNode } from 'react';
 import styles from './PageWrapper.module.scss';
+import { useSelectedLayoutSegments } from 'next/navigation';
 
 interface PageWrapper {
-    title: string;
     children: ReactNode;
 }
 
-const PageWrapper = ({ children, title }: PageWrapper) => {
+const PageWrapper = ({ children }: PageWrapper) => {
+    const segments = useSelectedLayoutSegments();
+    const lastSegment = segments.at(segments.length - 1);
+
     return (
         <div className={styles.Container}>
-            <h1 className={styles.Title}>{title}</h1>
+            <h1 className={styles.Title}>
+                {lastSegment === 'terms' ? 'terms & conditions' : lastSegment}
+            </h1>
             {children}
         </div>
     );
