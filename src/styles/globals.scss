@@ -32,12 +32,14 @@
     --spacing-128: #{utils.toRem(128)};
     --spacing-180: #{utils.toRem(180)};
     --spacing-240: #{utils.toRem(240)};
-    --font-xl: clamp(#{utils.toRem(40)}, 4vw, #{utils.toRem(80)});
-    --font-l: clamp(#{utils.toRem(32)}, 4vw, #{utils.toRem(72)});
-    --font-m: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(53)});
-    --font-s: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(32)});
-    --font-xs: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(38)});
-    --font-xxs: clamp(#{utils.toRem(16)}, 1.3vw, #{utils.toRem(24)});
+
+    --font-headline: clamp(#{utils.toRem(40)}, 4vw, #{utils.toRem(80)});
+    --font-subheadline: clamp(#{utils.toRem(32)}, 4vw, #{utils.toRem(72)});
+    --font-large: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(53)});
+    --font-medium: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(38)});
+    --font-small: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(32)});
+    --font-xsmall: clamp(#{utils.toRem(16)}, 1.3vw, #{utils.toRem(24)});
+    --font-xxsmall: clamp(#{utils.toRem(12)}, 1.3vw, #{utils.toRem(16)});
 }
 
 /* Box sizing rules */
@@ -93,18 +95,19 @@ dd {
 }
 
 h1 {
-    font-size: var(--font-xl);
+    font-size: var(--font-headline);
 }
 
 h2,
 h3 {
-    font-size: var(--font-s);
+    font-size: var(--font-medium);
+    font-weight: 500;
 }
 
 h4,
 h5,
 h6 {
-    font-size: var(--font-xxs);
+    font-size: var(--font-xsmall);
     margin-bottom: var(--spacing-8);
 
     @media (--medium) {

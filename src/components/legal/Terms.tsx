@@ -8,65 +8,68 @@ const Terms = () => (
                 environment and more specifically on global warming.
             </li>
             <li>
-                In these General Terms and Conditions, "General Terms and Conditions" means: the
-                present General Terms and Conditions.
+                In these General Terms and Conditions, &quot;General Terms and Conditions&quot;
+                means: the present General Terms and Conditions.
             </li>
             <li>
-                In these General Terms and Conditions, 'Client' means: the natural person who does
-                not act for purposes related to his business or professional activity (hereinafter:
-                Consumer) or the natural person or legal person who acts in the course of his
-                business or professional activity (hereinafter: Business Client) and uses the
+                In these General Terms and Conditions, &quot;Client&quot; means: the natural person
+                who does not act for purposes related to his business or professional activity
+                (hereinafter: Consumer) or the natural person or legal person who acts in the course
+                of his business or professional activity (hereinafter: Business Client) and uses the
                 Services of The Green Plus.
             </li>
             <li>
-                In these General Terms and Conditions, 'Parties', and each individually as a
-                'Party', means: The Green Plus and/or Client.
+                In these General Terms and Conditions, &quot;Parties&quot;, and each individually as
+                a &quot;Party&quot;, means: The Green Plus and/or Client.
             </li>
             <li>
-                In these General Terms and Conditions, 'Agreement' is understood to mean: the
-                Agreement concluded between The Green Plus and the Client, whether or not concluded
-                within the framework of an organized system for distance sales or services, whereby
-                until the Agreement is concluded, only one or more means of distance communication
-                is used, whereby The Green Plus undertakes to provide Services to the Client and the
-                Client undertakes to pay a price for this. The Agreement is concluded through an
-                offer from The Green Plus and its acceptance by the Client, which is further
-                specified in Article 4.3 of these General Terms and Conditions.
+                In these General Terms and Conditions, &quot;Agreement&quot; is understood to mean:
+                the Agreement concluded between The Green Plus and the Client, whether or not
+                concluded within the framework of an organized system for distance sales or
+                services, whereby until the Agreement is concluded, only one or more means of
+                distance communication is used, whereby The Green Plus undertakes to provide
+                Services to the Client and the Client undertakes to pay a price for this. The
+                Agreement is concluded through an offer from The Green Plus and its acceptance by
+                the Client, which is further specified in Article 4.3 of these General Terms and
+                Conditions.
             </li>
             <li>
-                In these General Terms and Conditions, 'Services' means: all Services provided to
-                the Client by The Green Plus and/or third parties engaged by it, including
-                compensating for CO2 emissions from (air) travel and providing advice on CO2
-                reduction, as well as all other work performed by The Green Plus for the benefit of
-                the Client, of whatever nature, performed in the context of an assignment, including
-                work that is not performed at the explicit request of the Client.
+                In these General Terms and Conditions, &quot;Services&quot; means: all Services
+                provided to the Client by The Green Plus and/or third parties engaged by it,
+                including compensating for CO2 emissions from (air) travel and providing advice on
+                CO2 reduction, as well as all other work performed by The Green Plus for the benefit
+                of the Client, of whatever nature, performed in the context of an assignment,
+                including work that is not performed at the explicit request of the Client.
             </li>
             <li>
-                In these General Terms and Conditions, 'Website' means: the Website of The Green
-                Plus, which can be consulted via{' '}
+                In these General Terms and Conditions, &quot;Website&quot; means: the Website of The
+                Green Plus, which can be consulted via{' '}
                 <a href="www.thegreenplus.nl.">www.thegreenplus.nl.</a>
             </li>
         </ol>
         <h5>Article 2 CO2 Definitions</h5>
         <ol>
             <li>
-                In these General Terms and Conditions, 'CO2 administration' means: the registration
-                by The Green Plus for the CO2 credits purchased by its Client, or at The Green
-                Plus's request, registered CO2 credits in the Client's name, at the register
+                In these General Terms and Conditions, &quot;CO2 administration&quot; means: the
+                registration by The Green Plus for the CO2 credits purchased by its Client, or at
+                The Green Plus&quot;s request, registered CO2 credits in the Client&quot;s name, at
+                the register
             </li>
             <li>
-                In these General Terms and Conditions, 'CO2 compensation' means: the registration of
-                an agreed amount of CO2 credits for or in the name of the customer in The Green
-                Plus's CO2 administration.
+                In these General Terms and Conditions, &quot;CO2 compensation&quot; means: the
+                registration of an agreed amount of CO2 credits for or in the name of the customer
+                in The Green Plus&quot;s CO2 administration.
             </li>
             <li>
-                In these General Terms and Conditions, "CO2 Credits" means rights in respect of 1
-                tonne of reduced or captured CO2, as a "Unit" defined in the Registry Terms and
-                Conditions of Administration.
+                In these General Terms and Conditions, &quot;CO2 Credits&quot; means rights in
+                respect of 1 tonne of reduced or captured CO2, as a &quot;Unit&quot; defined in the
+                Registry Terms and Conditions of Administration.
             </li>
             <li>
-                In these General Terms and Conditions, 'Register' is understood to mean: the
-                independent register where The Green Plus conducts its CO2 administration, namely
-                Markit Environmental Registry, APX and/or a Register to be named by The Green Plus.
+                In these General Terms and Conditions, &quot;Register&quot; is understood to mean:
+                the independent register where The Green Plus conducts its CO2 administration,
+                namely Markit Environmental Registry, APX and/or a Register to be named by The Green
+                Plus.
             </li>
         </ol>
         <h5>Article 3 Applicability of the General Terms and Conditions</h5>
@@ -126,8 +129,9 @@ const Terms = () => (
                 or error.
             </li>
             <li>
-                If the Client makes notes or provides responses to The Green Plus' quotation, they
-                will not form part of the Agreement, unless The Green Plus confirms this in writing.
+                If the Client makes notes or provides responses to The Green Plus&quot; quotation,
+                they will not form part of the Agreement, unless The Green Plus confirms this in
+                writing.
             </li>
             <li>
                 An assignment by the Client that has not been preceded by a written quotation
@@ -185,7 +189,7 @@ const Terms = () => (
                 travel mode. To compensate for these calculated emissions, Green Plus purchases its
                 carbon credits on the market through official brokers. As soon as a Client has
                 purchased a service from The Green Plus, The Green Plus will settle the carbon
-                credits for its Client via The Green Plus' own register/account.
+                credits for its Client via The Green Plus&quot; own register/account.
             </li>
             <li>
                 As soon as possible after the conclusion of an Agreement for the provision of CO2
@@ -196,9 +200,9 @@ const Terms = () => (
                 If the characteristics of CO2 credits from the Agreement between the parties are not
                 specified in more detail or if the projects desired by the Client do not meet the
                 independent verification for whatever reason, or if they produce insufficient CO2
-                credits to meet the Client's request The Green Plus is entirely free to choose
+                credits to meet the Client&quot;s request The Green Plus is entirely free to choose
                 another project of comparable quality to which the CO2 credits to be registered in
-                the Client's name relate.
+                the Client&quot;s name relate.
             </li>
             <li>
                 If there are changes in legislation and regulations in the country of origin of the
@@ -211,7 +215,7 @@ const Terms = () => (
             </li>
             <li>
                 The Green Plus retains all rights at all times to the CO2 credits it has purchased
-                for the Client or registered in the Client's name, unless explicitly agreed
+                for the Client or registered in the Client&quot;s name, unless explicitly agreed
                 otherwise.
             </li>
             <li>
@@ -315,13 +319,13 @@ const Terms = () => (
             <li>
                 After the conclusion of an Agreement for CO2 compensation, the Client can use the
                 tool intended for that purpose. Based on the use of this tool, monthly payment
-                obligations for the Client towards The Green Plus arise on behalf of the Client's
-                customers.
+                obligations for the Client towards The Green Plus arise on behalf of the
+                Client&quot;s customers.
             </li>
             <li>
-                If a trip of the Client's customer is canceled for whatever reason, the compensation
-                of the CO2 is logically no longer necessary and the amount already paid will be
-                refunded to the Client.
+                If a trip of the Client&quot;s customer is canceled for whatever reason, the
+                compensation of the CO2 is logically no longer necessary and the amount already paid
+                will be refunded to the Client.
             </li>
             <li>Payment is made afterwards by means of invoicing via bank transfer or iDeal.</li>
             <li>The invoice must be paid by the Client within 14 (fourteen) days.</li>
@@ -357,11 +361,11 @@ const Terms = () => (
                 long as these goods have not been paid off or have not been paid in full.
             </li>
             <li>
-                Insofar as The Green Plus's retention of title is null and void through the
+                Insofar as The Green Plus&quot;s retention of title is null and void through the
                 formation of a business or otherwise, The Green Plus reserves the right to establish
                 a non-possessory pledge on an item, as security for all that which the Client still
                 owes or will owe to The Green Plus. The Client must establish this non-possessory
-                pledge at The Green Plus's first request.
+                pledge at The Green Plus&quot;s first request.
             </li>
         </ol>
         <h5>Article 13 Liability</h5>
@@ -415,7 +419,7 @@ const Terms = () => (
                 obligations of The Green Plus with regard to its Services
             </li>
             <li>
-                The Green Plus' liability is limited to the amount covered and paid out by the
+                The Green Plus&quot; liability is limited to the amount covered and paid out by the
                 insurer. If the insurer does not pay out, or if The Green Plus is not insured, the
                 liability is limited to the amount paid by the Client.
             </li>
@@ -464,7 +468,7 @@ const Terms = () => (
             <li>The Green Plus does not give any guarantees regarding the Services provided.</li>
             <li>
                 The provisions of the General Terms and Conditions with regard to warranty do not
-                affect the Client's warranty claims under the law.
+                affect the Client&quot;s warranty claims under the law.
             </li>
         </ol>
         <h5>Article 16 Confidentiality of data</h5>

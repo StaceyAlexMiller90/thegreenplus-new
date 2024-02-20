@@ -8,6 +8,8 @@ interface LogoProps {
 const Logo = ({ simplified }: LogoProps) => {
     return (
         <svg
+            role="img"
+            aria-label="The Green Plus"
             className={styles.Svg}
             width="100%"
             height="100%"

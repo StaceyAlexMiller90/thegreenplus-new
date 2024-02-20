@@ -1,3 +1,5 @@
+@use '../../styles/config/utils' as utils;
+
 .Section {
     @media (--medium) {
         display: flex;
@@ -7,10 +9,32 @@
 
 .Primary {
     background-color: var(--off-black);
+    padding-left: var(--spacing-40);
+    padding-right: var(--spacing-40);
+    padding-top: var(--spacing-48);
+    padding-bottom: var(--spacing-84);
+
+    @media (--medium) {
+        padding-top: var(--spacing-84);
+    }
+
+    @media (--xlarge) {
+        padding-top: var(--spacing-128);
+        min-height: utils.toRem(760);
+    }
 }
 
 .Secondary {
     background-color: var(--black);
+    padding-left: var(--spacing-24);
+    padding-right: var(--spacing-24);
+    padding-top: var(--spacing-64);
+    padding-bottom: var(--spacing-64);
+
+    @media (--xlarge) {
+        padding-top: var(--spacing-128);
+        padding-bottom: var(--spacing-128);
+    }
 }
 
 .Primary {
@@ -60,5 +84,15 @@
     @media (--3xl) {
         padding-left: var(--spacing-180);
         padding-right: var(--spacing-180);
+    }
+}
+
+.AnimationWrapper {
+    height: 100%;
+    width: 100%;
+
+    @media (--medium) {
+        display: flex;
+        align-items: center;
     }
 }

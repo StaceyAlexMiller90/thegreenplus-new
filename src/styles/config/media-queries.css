@@ -6,3 +6,5 @@
 @custom-media --2xl (min-width: 1440px);
 @custom-media --3xl (min-width: 1680px);
 @custom-media --4xl (min-width: 1920px);
+
+@custom-media --mobile-only (max-width: 575px);

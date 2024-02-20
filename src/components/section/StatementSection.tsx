@@ -18,7 +18,7 @@ const StatementSection = () => {
             <div className={styles.Body}>
                 <q cite="https://www.ipcc.ch/report/ar6/wg1/#FullReport" className={styles.Text}>
                     Unless there are immediate and large scale reductions in greenhouse gas
-                    emissions, the global carbon budget will run out by 2030.
+                    emissions, the global carbon budget will run out by 2030
                 </q>
                 <a className={styles.Link} href="https://www.ipcc.ch/report/ar6/wg1/#FullReport">
                     IPCC report of 2021

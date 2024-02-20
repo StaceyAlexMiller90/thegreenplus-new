@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import Section from './Section';
 import styles from './InfoSection.module.scss';
-import Image from 'next/image';
 import FoundedImage from '../../../public/Founded.png';
 
 const InfoSection = () => {

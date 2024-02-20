@@ -1,15 +1,17 @@
 'use client';
 import { MouseEventHandler } from 'react';
-import { useModalContext } from 'src/context/ModalContext';
-import Imprint from './Imprint';
-import Privacy from './Privacy';
-import Terms from './Terms';
+import { useModalContext } from '@/context/ModalContext';
+import Imprint from '@/components/legal/Imprint';
+import PrivacyPolicy from '@/components/legal/PrivacyPolicy';
+import Terms from '@/components/legal/Terms';
+import { ModalData } from '@/hooks/useModal';
+import Button from '@/components/button/Button';
+
 import styles from './Footer.module.scss';
-import { ModalData } from '../../hooks/useModal';
 
 const MODALS: Record<string, Partial<ModalData>> = {
     privacy: {
-        modalContent: <Privacy />,
+        modalContent: <PrivacyPolicy />,
         modalTitle: 'Privacy Policy',
     },
     imprint: {
@@ -26,6 +28,7 @@ const Footer = () => {
     const { toggleModal } = useModalContext();
 
     const openModal: MouseEventHandler<HTMLButtonElement> = e => {
+        e.preventDefault();
         toggleModal(
             true,
             MODALS[e.currentTarget.value].modalContent,
@@ -35,15 +38,15 @@ const Footer = () => {
 
     return (
         <footer className={styles.Footer}>
-            <button className={styles.Link} value="privacy" onClick={openModal}>
-                Privacy |
-            </button>
-            <button className={styles.Link} value="imprint" onClick={openModal}>
-                Imprint |
-            </button>
-            <button className={styles.Link} value="terms" onClick={openModal}>
+            <Button variant="naked" className={styles.Link} value="privacy" onClick={openModal}>
+                Privacy
+            </Button>
+            <Button variant="naked" className={styles.Link} value="imprint" onClick={openModal}>
+                Imprint
+            </Button>
+            <Button variant="naked" className={styles.Link} value="terms" onClick={openModal}>
                 Terms & Conditions
-            </button>
+            </Button>
         </footer>
     );
 };

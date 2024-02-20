@@ -1,14 +1,14 @@
 @use '../../styles/config/utils' as utils;
 
 .Header {
-    font-size: var(--font-l);
+    font-size: var(--font-subheadline);
     text-align: center;
     line-height: 1;
     font-weight: 500;
-    padding-top: var(--spacing-64);
+    margin-bottom: var(--spacing-52);
 
-    @media (--xlarge) {
-        padding-top: var(--spacing-128);
+    @media (--medium) {
+        margin-bottom: var(--spacing-84);
     }
 }
 
@@ -16,6 +16,7 @@
     position: relative;
     display: inline-block;
     padding-bottom: var(--spacing-24);
+    overflow: hidden;
 
     &::after {
         position: absolute;
@@ -23,7 +24,13 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: utils.toRem(10);
+        height: utils.toRem(8);
         background-color: var(--primary-green);
+        transition: transform 1.25s cubic-bezier(0.19, 1, 0.22, 1);
+        transform: translateX(-101%);
+    }
+
+    &.inView::after {
+        transform: translateX(0);
     }
 }

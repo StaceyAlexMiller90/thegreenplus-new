@@ -1,0 +1,40 @@
+@use '../../styles/config/utils' as utils;
+
+.Screen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--off-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-24);
+    z-index: 150;
+
+    @media (--large) {
+        padding: var(--spacing-64);
+    }
+}
+
+.Heading {
+    font-weight: 700;
+    font-size: utils.toRem(48);
+    text-transform: uppercase;
+
+    @media (--large) {
+        font-size: utils.toRem(80);
+    }
+}
+
+.Line {
+    display: block;
+    margin-top: var(--spacing-8);
+}
+
+.TextBackground {
+    color: var(--off-black);
+    background-color: var(--primary-green);
+    display: inline-block;
+}
