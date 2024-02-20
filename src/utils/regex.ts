@@ -7,9 +7,9 @@ export const isValidEmail = (email: string) => {
 };
 
 export const isValidName = (name: string) => {
-    return name && name.length <= 30 && nameRegex.test(name);
+    return name?.length <= 30 && nameRegex.test(name);
 };
 
 export const isValidMessage = (message: string) => {
-    return message && message.length <= 1000 && messageRegex.test(message);
+    return message?.length <= 1000 && messageRegex.test(message);
 };
