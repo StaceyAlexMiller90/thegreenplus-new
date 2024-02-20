@@ -1,27 +1,24 @@
 'use client';
 import { LazyMotion, domAnimation } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 import { m } from 'framer-motion';
 import useScrolled from '@/hooks/useScrolled';
 import Button from '@/components/button/Button';
 import Logo from '@/components/logo/Logo';
-import { scrollToTop } from '@/utils/utils';
 
 import styles from './Navigation.module.scss';
 
-const Navigation = () => {
-    const pathname = usePathname();
-    const isScrolled = useScrolled();
+interface Navigation {
+    inverted?: boolean;
+}
 
-    const isHomePage = pathname === '/';
+const Navigation = ({ inverted }: Navigation) => {
+    const isScrolled = useScrolled();
 
     return (
         <LazyMotion strict features={domAnimation}>
             <nav className={styles.Navigation}>
-                <Button
-                    variant="naked"
-                    {...(isHomePage ? { onClick: scrollToTop } : { href: '/' })}>
-                    <Logo simplified={isScrolled} />
+                <Button variant="naked" href="/">
+                    <Logo simplified={isScrolled} inverted={inverted} />
                 </Button>
 
                 <m.div
@@ -29,7 +26,9 @@ const Navigation = () => {
                     animate={{ x: isScrolled ? 0 : 300 }}
                     transition={{ duration: 0.2 }}
                     className={styles.Button}>
-                    <Button href="/#contact">Contact</Button>
+                    <Button href="/#contact" variant={inverted ? 'secondary' : 'primary'}>
+                        Contact
+                    </Button>
                 </m.div>
             </nav>
         </LazyMotion>

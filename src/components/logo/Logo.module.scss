@@ -29,4 +29,8 @@
     &.isHidden {
         opacity: 0;
     }
+
+    &.isInverted {
+        fill: var(--black);
+    }
 }

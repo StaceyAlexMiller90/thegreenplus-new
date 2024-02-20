@@ -3,9 +3,10 @@ import styles from './Logo.module.scss';
 
 interface LogoProps {
     simplified?: boolean;
+    inverted?: boolean;
 }
 
-const Logo = ({ simplified }: LogoProps) => {
+const Logo = ({ simplified, inverted }: LogoProps) => {
     return (
         <svg
             role="img"
@@ -28,7 +29,11 @@ const Logo = ({ simplified }: LogoProps) => {
                     className={styles.InnerIcon}
                     d="M562,287.7L341.2,228.5L326.5,283.7L436.8,313.3L547.2,342.8L562,287.7Z"
                 />
-                <g className={classNames(styles.Text, { [styles.isHidden]: simplified })}>
+                <g
+                    className={classNames(styles.Text, {
+                        [styles.isHidden]: simplified,
+                        [styles.isInverted]: inverted,
+                    })}>
                     <path d="M827,183.9L802.2,183.9L802.2,252.6L789.1,252.6L789.1,183.9L764.4,183.9L764.4,171.4L827,171.4L827,183.9Z" />
                     <path d="M896.3,212.3L896.3,252.6L883.2,252.6L883.2,215C883.2,205.1 878.8,199.9 869.2,199.9C858.1,199.9 852,207.2 852,219.5L852,252.6L838.9,252.6L838.9,163.2L852,163.2L852,199.2C856.5,191.8 863.5,187.4 873.4,187.4C887.6,187.4 896.3,196.8 896.3,212.3Z" />
                     <path d="M974,224.3L922.1,224.3C923.1,236 931.4,242.5 942.1,242.5C949.8,242.5 956.1,239.2 959.2,233L972.8,233C967.8,247.3 955.6,254 942,254C922.6,254 908.8,240.1 908.8,220.8C908.8,201.5 922.5,187.4 941.8,187.4C962.3,187.4 975.3,203.3 974,224.3ZM922.9,213.6L960,213.6C958,204.9 951.4,198.7 941.8,198.7C931.8,198.7 925.1,205 922.9,213.6Z" />

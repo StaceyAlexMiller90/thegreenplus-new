@@ -39,7 +39,10 @@
     --font-medium: clamp(#{utils.toRem(24)}, 3vw, #{utils.toRem(38)});
     --font-small: clamp(#{utils.toRem(22)}, 2vw, #{utils.toRem(32)});
     --font-xsmall: clamp(#{utils.toRem(16)}, 1.3vw, #{utils.toRem(24)});
-    --font-xxsmall: clamp(#{utils.toRem(12)}, 1.3vw, #{utils.toRem(16)});
+    --font-xxsmall: clamp(#{utils.toRem(16)}, 1.3vw, #{utils.toRem(16)});
+
+    --body-color: var(--off-black);
+    --text-color: var(--white);
 }
 
 /* Box sizing rules */
@@ -58,8 +61,6 @@ body {
     margin-right: auto;
     font-family: var(--primary-font);
     line-height: 1.2;
-    background-color: var(--off-black);
-    color: var(--white);
     overflow-x: hidden;
     -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
 
@@ -72,6 +73,11 @@ body {
     &::-webkit-scrollbar {
         display: none;
     }
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
 }
 
 /* Remove default margin */
