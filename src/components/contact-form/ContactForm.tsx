@@ -1,14 +1,16 @@
 'use client';
-import { useState, Dispatch, SetStateAction } from 'react';
+import { useState, Dispatch, SetStateAction, useTransition } from 'react';
 import classNames from 'classnames';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import Button from '@/components/button/Button';
 import { emailRegex, nameRegex, messageRegex } from '@/utils/regex';
 import Loader from '@/components/loader/Loader';
+import { submitForm } from 'app/actions/actions';
 import Errors from './Errors';
 
 import styles from './ContactForm.module.scss';
+
 export interface FormInputs {
     name: string;
     email: string;
@@ -19,48 +21,32 @@ export interface FormInputs {
 interface ContactForm {
     setSubmitted: Dispatch<SetStateAction<boolean>>;
 }
-// TODO update to use server actions when released stable
 
 const ContactForm = ({ setSubmitted }: ContactForm) => {
+    const [isPending, startTransition] = useTransition();
+    const [errorMessage, setErrorMessage] = useState('');
+
     const {
         register,
         handleSubmit,
-        formState: { errors, isDirty, isValid, isSubmitting },
+        formState: { errors, isDirty, isValid },
     } = useForm<FormInputs>({ criteriaMode: 'all', mode: 'onBlur', reValidateMode: 'onSubmit' });
 
-    const [errorMessage, setErrorMessage] = useState('');
-
     const onSubmit: SubmitHandler<FormInputs> = async ({ name, email, message }) => {
-        try {
-            const res = await fetch('/api/email', {
-                body: JSON.stringify({
-                    name,
-                    email,
-                    message,
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'POST',
-            });
-
-            const response = await res.json();
+        startTransition(async () => {
+            const response = await submitForm({ name, email, message });
 
             if (!response.success && response.type === 'submission') {
-                throw new Error('Something went wrong, please try again');
+                setErrorMessage('Something went wrong, please try again');
+            } else {
+                setSubmitted(true);
             }
-
-            setSubmitted(true);
-        } catch (error) {
-            if (error && error instanceof Error) {
-                setErrorMessage(error.message);
-            }
-        }
+        });
     };
 
     return (
         <>
-            {isSubmitting ? <Loader label="sending email" /> : null}
+            {isPending ? <Loader label="sending email" /> : null}
             {errorMessage ? <p className={styles.ErrorMessage}>{errorMessage}</p> : null}
             <form className={styles.Form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.Group}>
@@ -77,7 +63,7 @@ const ContactForm = ({ setSubmitted }: ContactForm) => {
                             },
                             pattern: {
                                 value: nameRegex,
-                                message: 'Name cannot contain numbers',
+                                message: 'Name cannot contain numbers or special characters',
                             },
                         })}
                         type="text"
@@ -157,7 +143,7 @@ const ContactForm = ({ setSubmitted }: ContactForm) => {
                     <Button
                         variant="secondary"
                         type="submit"
-                        disabled={!isDirty || !isValid || isSubmitting}>
+                        disabled={!isDirty || !isValid || isPending}>
                         Submit
                     </Button>
                 </div>

@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
+'use server';
 import sgMail from '@sendgrid/mail';
 import { FormInputs } from '@/components/contact-form/ContactForm';
-import { isValidEmail, isValidName, isValidMessage } from '../../../utils/regex';
+import { isValidEmail, isValidName, isValidMessage } from '@/utils/regex';
 
 interface ResponseData {
     success: boolean;
@@ -25,7 +25,12 @@ const sendSuccessAutoReply = async ({
     };
 
     try {
-        await sgMail.send(msg);
+        const response = await sgMail.send(msg);
+
+        if (response[0].statusCode !== 202) {
+            throw new Error('something went wrong');
+        }
+
         return { success: true, type: 'auto-reply' };
     } catch (error) {
         return { success: false, type: 'auto-reply', error };
@@ -49,29 +54,21 @@ const sendContactFormSubmission = async ({
     };
 
     try {
-        await sgMail.send(msg);
+        const response = await sgMail.send(msg);
+
+        if (response[0].statusCode !== 202) {
+            throw new Error('something went wrong');
+        }
+
+        return sendSuccessAutoReply({ name, email });
     } catch (error) {
         return { success: false, error: error, type: 'submission' };
     }
-
-    return sendSuccessAutoReply({ name, email });
 };
 
-export async function POST(req: NextRequest) {
-    const { name, email, message } = await req.json();
-
+export const submitForm = async ({ name, email, message }: Omit<FormInputs, 'privacyConsent'>) => {
     if (!isValidName(name) || !isValidEmail(email) || !isValidMessage(message)) {
-        return NextResponse.json(
-            {
-                success: false,
-                error: 'Invalid form fields',
-                type: 'submission',
-            },
-            { status: 400 },
-        );
+        return { success: false, error: 'Invalid form fields', type: 'submission' };
     }
-
-    const response = await sendContactFormSubmission({ name, email, message });
-
-    return NextResponse.json(response);
-}
+    return sendContactFormSubmission({ name, email, message });
+};
